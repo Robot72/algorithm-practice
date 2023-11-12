@@ -7,6 +7,47 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+  return str.split('').every((char, i) => {
+    return char === str[str.length - i - 1];
+  });
+}
+
+//console.log(palindrome('abccba'))
 
 module.exports = palindrome;
+
+/*
+Method 1:
+
+function palindrome(str) {
+  const reversed = str.split('').reverse().join('');
+
+  return str === reversed;
+}
+
+My implementation with 50% tests passed
+
+function palindrome(str) {
+  const count = str.length;
+  const halfCount = count / 2;
+  if (count % 2 > 0) {
+    return false;
+  }
+  
+  let firstPart = [];
+  let index = 1;
+  for (let char of str) {
+    if (index < halfCount) {
+      firstPart.push(char);
+      index += 1;
+    } else {
+      if (firstPart[index-1] === char) {
+        return false;
+      }
+      index -= 1;
+    } 
+  }
+  return true;
+}
+*/

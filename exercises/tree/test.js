@@ -27,6 +27,22 @@ describe('Node', () => {
     n.remove('b');
     expect(n.children.length).toEqual(0);
   });
+
+  test('Node can remove children node with UNIQ data', () => {
+    const n1 = new Node('a');
+    n1.add('b');
+    n1.add('c');
+    n1.add('d');
+    n1.add('UNIQ');
+    n1.add('Hello');
+    n1.add('by by');
+    n1.add('UNIQ');
+    n1.add('qwer');
+    expect(n1.children.length).toEqual(8)
+
+    n1.remove('UNIQ');
+    expect(n1.children.length).toEqual(6)
+  })
 });
 
 describe.skip('Tree', () => {

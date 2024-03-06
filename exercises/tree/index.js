@@ -51,7 +51,10 @@ class Tree {
         }
     }
 
-    traverseDF() {
+    /**
+     * Depth first traversal
+     */
+    traverseDF(fn) {
         const arr = [this.root];
 
         while (arr.length) {
@@ -73,12 +76,14 @@ node1.children[0].children.push(new Node('VP 1'))
 node1.children[0].children.push(new Node('VP 2'))
 node1.children[1].children.push(new Node('VP of sales'))
 node1.children[1].children.push(new Node('VP of marketing'))
+node1.children[1].children.push(new Node('VP of client services'))
+node1.children[2].children.push(new Node('Product Manager'))
 
 const tree = new Tree();
 tree.root = node1;
-tree.traverseBF((node) => {
+tree.traverseDF((node) => {
     console.log('POSITION', node.data)
 })
-*/
+//*/
 
 module.exports = { Tree, Node };

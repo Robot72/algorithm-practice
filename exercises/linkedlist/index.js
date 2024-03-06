@@ -15,6 +15,11 @@ class LinkedList {
         this.head = null;
     }
 
+    insertFirst(node) {
+        this.next = this.node.next
+        this.head = node
+    }
+
     /**
      * Not implemented 
      * @param {*} index 

@@ -45,7 +45,7 @@ describe('Node', () => {
   })
 });
 
-describe.skip('Tree', () => {
+describe('Tree', () => {
   test('starts empty', () => {
     const t = new Tree();
     expect(t.root).toEqual(null);

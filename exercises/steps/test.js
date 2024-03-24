@@ -32,3 +32,13 @@ test('steps called with n = 3', () => {
   expect(console.log.mock.calls[2][0]).toEqual('###');
   expect(console.log.mock.calls.length).toEqual(3);
 });
+
+test('Steps called with n = 5', () => {
+  steps(5);
+  expect(console.log.mock.calls[0][0]).toEqual('#    ');
+  expect(console.log.mock.calls[1][0]).toEqual('##   ');
+  expect(console.log.mock.calls[2][0]).toEqual('###  ');
+  expect(console.log.mock.calls[3][0]).toEqual('#### ');
+  expect(console.log.mock.calls[4][0]).toEqual('#####');
+  expect(console.log.mock.calls.length).toEqual(5);
+});

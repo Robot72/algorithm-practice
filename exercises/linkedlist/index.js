@@ -99,12 +99,30 @@ class LinkedList {
      * @param {*} index 
      * @returns 
      */
-    getAd(index) {
-        return this.node;
+    getAt(index) {
+        let counter = 0;
+        let node = this.head;
+        while (node) {
+            if (counter === index) {
+                return node;
+            } else if (counter > 1000) {
+                return;
+            }
+
+            counter++;
+
+            if (!node.next) {
+                return null;
+            }
+
+            node = node.next;
+        }
+
+        return null;
     }
 
     removeAt(index) {
-        if (!this.node) {
+        if (!this.head) {
             return;
         }
 

@@ -52,6 +52,44 @@ class LinkedList {
         return node;
     }
 
+    removeFirst() {
+        if (!this.head) {
+            return;
+        }
+
+        this.head = this.head.next;
+    }
+
+    removeLast() {
+        if (!this.head) {
+            return;
+        }
+
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+
+        let previous = this.head;
+        while (previous) {
+            if (!previous.next.next) {
+                previous.next = null;
+                return;
+            }
+            previous = previous.next;
+        }
+    }
+
+    insertLast(data) {
+        const last = this.getLast();
+
+        if (last) {
+            last.next = new Node(data);
+        } else {
+            this.head = new Node(data);
+        }
+    }
+
     clear() {
         this.head = null;
     }
